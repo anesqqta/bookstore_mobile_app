@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.kp.projectbookstore.activities.BookDetailsActivity
 import com.kp.projectbookstore.activities.ProfileActivity
 import com.kp.projectbookstore.activities.SearchActivity
 import com.kp.projectbookstore.adapters.BookAdapter
@@ -24,13 +25,22 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setupRecyclerBiew()
+        setupRecyclerView()
         setupBottomNavigation()
     }
 
-    private fun setupRecyclerBiew() {
+    private fun setupRecyclerView() {
         bookAdapter = BookAdapter(TestData.books) {
-            selectedBook -> Toast.makeText(this, "Selected: ${selectedBook.title}", Toast.LENGTH_SHORT).show()
+            selectedBook ->
+            val intent = Intent(this, BookDetailsActivity::class.java).apply {
+                putExtra("title", selectedBook.title)
+                putExtra("author", selectedBook.author)
+                putExtra("genre", selectedBook.genre)
+                putExtra("price", selectedBook.price)
+                putExtra("description", selectedBook.description)
+                putExtra("imageResId", selectedBook.imageResId)
+            }
+            startActivity(intent)
         }
 
         binding.rvBooks.layoutManager = LinearLayoutManager(this)
