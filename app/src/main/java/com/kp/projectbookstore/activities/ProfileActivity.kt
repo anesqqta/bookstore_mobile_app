@@ -34,4 +34,5 @@ class ProfileActivity : AppCompatActivity() {
             finish()
         }
     }
+
 }
