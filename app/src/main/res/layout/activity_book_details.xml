@@ -83,4 +83,5 @@
             android:text="Add to favorites" />
 
     </LinearLayout>
+
 </ScrollView>

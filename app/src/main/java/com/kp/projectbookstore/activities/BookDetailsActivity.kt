@@ -38,4 +38,5 @@ class BookDetailsActivity : AppCompatActivity() {
             Toast.makeText(this, "$title added to favorites", Toast.LENGTH_SHORT).show()
         }
     }
+
 }
