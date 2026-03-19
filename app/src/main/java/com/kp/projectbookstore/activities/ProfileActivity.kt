@@ -1,5 +1,6 @@
 package com.kp.projectbookstore.activities
 
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
@@ -26,5 +27,11 @@ class ProfileActivity : AppCompatActivity() {
 
         binding.tvUserName.text = userName
         binding.tvUserEmail.text = userEmail
+
+        binding.btnLogout.setOnClickListener {
+            preferences.edit().clear().apply()
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
+        }
     }
 }
