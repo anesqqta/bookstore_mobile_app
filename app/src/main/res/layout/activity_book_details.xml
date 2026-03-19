@@ -14,7 +14,7 @@
             android:id="@+id/ivBookImage"
             android:layout_width="match_parent"
             android:layout_height="344dp"
-            android:contentDescription="Book image"
+            android:contentDescription="Фото книги"
             android:scaleType="centerCrop"
             android:src="@drawable/book1" />
 
@@ -23,7 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="Book title"
+            android:text="Назва"
             android:textColor="@color/text_primary"
             android:textSize="26sp"
             android:textStyle="bold" />
@@ -33,7 +33,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Author"
+            android:text="Автор"
             android:textColor="@color/text_secondary"
             android:textSize="18sp" />
 
@@ -42,7 +42,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Genre"
+            android:text="Жанр"
             android:textColor="@color/text_secondary"
             android:textSize="16sp" />
 
@@ -51,7 +51,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:text="299 грн"
+            android:text="000 грн"
             android:textColor="@color/primary"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -61,7 +61,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="Description"
+            android:text="Опис"
             android:textColor="@color/text_primary"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -71,7 +71,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Book description"
+            android:text="Опис книги"
             android:textColor="@color/text_secondary"
             android:textSize="16sp" />
 
@@ -80,7 +80,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
-            android:text="Add to favorites" />
+            android:text="Додати до улюбленого" />
 
     </LinearLayout>
 
