@@ -40,14 +40,18 @@ class LoginActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            val user = TestData.currentUser
+            val user = TestData.users.find {
+                (loginInput == it.email || loginInput == it.name) &&
+                        passwordInput == it.password
+            }
 
-            if ((loginInput == user.email || loginInput == user.name) && passwordInput == user.password) {
+            if (user != null) {
                 preferences.edit()
                     .putBoolean("isLoggedIn", true)
                     .putString("userName", user.name)
                     .putString("userEmail", user.email)
                     .apply()
+
                 startActivity(Intent(this, MainActivity::class.java))
                 finish()
             } else {

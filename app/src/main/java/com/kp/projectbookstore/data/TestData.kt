@@ -81,11 +81,19 @@ object TestData {
         )
     )
 
-    val currentUser = User (
-        id = 1,
-        name = "Anastasiia",
-        email = "anastasiia@email.com",
-        password = "1111"
+    val users = listOf (
+        User (
+            id = 1,
+            name = "Anastasiia",
+            email = "anastasiia@email.com",
+            password = "1111"
+        ),
+        User (
+            id = 2,
+            name = "User",
+            email = "user@email.com",
+            password = "1234"
+        )
     )
 }
 
