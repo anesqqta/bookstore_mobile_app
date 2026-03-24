@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.kp.projectbookstore.activities.BookDetailsActivity
 import com.kp.projectbookstore.activities.FavoritesActivity
 import com.kp.projectbookstore.activities.ProfileActivity
-import com.kp.projectbookstore.activities.SearchActivity
 import com.kp.projectbookstore.adapters.BookAdapter
 import com.kp.projectbookstore.data.TestData
 import com.kp.projectbookstore.databinding.ActivityMainBinding
