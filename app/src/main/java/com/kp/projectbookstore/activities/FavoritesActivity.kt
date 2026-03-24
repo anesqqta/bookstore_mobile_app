@@ -8,6 +8,7 @@ import com.kp.projectbookstore.activities.BookDetailsActivity
 import com.kp.projectbookstore.adapters.BookAdapter
 import com.kp.projectbookstore.data.TestData
 import com.kp.projectbookstore.databinding.ActivityFavoritesBinding
+import com.kp.projectbookstore.utils.BookPreferences
 
 class FavoritesActivity : AppCompatActivity() {
 
@@ -18,6 +19,8 @@ class FavoritesActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityFavoritesBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        BookPreferences.loadBookStates(this)
 
         adapter = BookAdapter(emptyList()) { selectedBook ->
             val intent = Intent(this, BookDetailsActivity::class.java).apply {

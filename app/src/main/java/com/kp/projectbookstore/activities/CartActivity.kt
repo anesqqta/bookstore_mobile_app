@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.kp.projectbookstore.adapters.BookAdapter
 import com.kp.projectbookstore.data.TestData
 import com.kp.projectbookstore.databinding.ActivityCartBinding
+import com.kp.projectbookstore.utils.BookPreferences
 
 class CartActivity : AppCompatActivity() {
 
@@ -18,6 +19,8 @@ class CartActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityCartBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        BookPreferences.loadBookStates(this)
 
         adapter = BookAdapter(emptyList()) { selectedBook ->
             val intent = Intent(this, BookDetailsActivity::class.java).apply {

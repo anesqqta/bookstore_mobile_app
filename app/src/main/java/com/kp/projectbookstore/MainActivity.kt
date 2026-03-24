@@ -17,6 +17,7 @@ import com.kp.projectbookstore.adapters.BookAdapter
 import com.kp.projectbookstore.data.TestData
 import com.kp.projectbookstore.databinding.ActivityMainBinding
 import com.kp.projectbookstore.models.Book
+import com.kp.projectbookstore.utils.BookPreferences
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -28,6 +29,8 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        BookPreferences.loadBookStates(this)
 
         allBooks = TestData.books
 

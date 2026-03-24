@@ -9,6 +9,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.kp.projectbookstore.R
 import com.kp.projectbookstore.data.TestData
 import com.kp.projectbookstore.databinding.ActivityBookDetailsBinding
+import com.kp.projectbookstore.utils.BookPreferences
 
 class BookDetailsActivity : AppCompatActivity() {
     private lateinit var binding: ActivityBookDetailsBinding
@@ -17,6 +18,8 @@ class BookDetailsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityBookDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        BookPreferences.loadBookStates(this)
 
         val title = intent.getStringExtra("title") ?: "Unknown title"
         val author = intent.getStringExtra("author") ?: "Unknown author"

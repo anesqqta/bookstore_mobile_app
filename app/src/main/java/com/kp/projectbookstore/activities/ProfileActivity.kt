@@ -10,6 +10,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.kp.projectbookstore.R
 import com.kp.projectbookstore.data.TestData
 import com.kp.projectbookstore.databinding.ActivityProfileBinding
+import com.kp.projectbookstore.utils.BookPreferences
 
 class ProfileActivity : AppCompatActivity() {
 
@@ -20,6 +21,8 @@ class ProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        BookPreferences.loadBookStates(this)
 
         preferences = getSharedPreferences("bookstore_prefs", MODE_PRIVATE)
 
