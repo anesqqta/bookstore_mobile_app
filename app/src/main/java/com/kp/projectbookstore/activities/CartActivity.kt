@@ -44,6 +44,7 @@ class CartActivity : AppCompatActivity() {
                 Toast.makeText(this, "Кошик порожній", Toast.LENGTH_SHORT).show()
             } else {
                 TestData.books.filter { it.isInCart }.forEach { it.isInCart = false }
+                BookPreferences.saveBookStates(this)
                 Toast.makeText(this, "Замовлення оформлено", Toast.LENGTH_SHORT).show()
                 showCartBooks()
             }

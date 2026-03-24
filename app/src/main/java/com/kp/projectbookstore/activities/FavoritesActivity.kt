@@ -43,4 +43,5 @@ class FavoritesActivity : AppCompatActivity() {
         val favoriteBooks = TestData.books.filter { it.isFavorite }
         adapter.updateBooks(favoriteBooks)
     }
+
 }

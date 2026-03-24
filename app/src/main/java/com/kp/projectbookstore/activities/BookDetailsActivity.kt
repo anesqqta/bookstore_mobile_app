@@ -47,6 +47,7 @@ class BookDetailsActivity : AppCompatActivity() {
         binding.btnAddToFavorites.setOnClickListener {
             selectedBook?.let { book ->
                 book.isFavorite = !book.isFavorite
+                BookPreferences.saveBookStates(this)
                 updateFavoriteButton(book.isFavorite)
 
                 val message = if (book.isFavorite) {
@@ -61,6 +62,7 @@ class BookDetailsActivity : AppCompatActivity() {
         binding.btnAddToCart.setOnClickListener {
             selectedBook?.let { book ->
                 book.isInCart = !book.isInCart
+                BookPreferences.saveBookStates(this)
                 updateCartButton(book.isInCart)
 
                 val message = if (book.isInCart) {
@@ -76,6 +78,7 @@ class BookDetailsActivity : AppCompatActivity() {
         binding.btnToggleStock.setOnClickListener {
             selectedBook?.let { book ->
                 book.inStock = !book.inStock
+                BookPreferences.saveBookStates(this)
                 updateStockButton(book.inStock)
 
                 val message = if (book.inStock) {
