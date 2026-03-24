@@ -29,7 +29,13 @@ class ProfileActivity : AppCompatActivity() {
         binding.tvUserName.text = userName
         binding.tvUserEmail.text = userEmail
 
-        showFavoriteBooks()
+        binding.btnOpenFavorites.setOnClickListener {
+            startActivity(Intent(this, FavoritesActivity::class.java))
+        }
+
+        binding.btnOpenCart.setOnClickListener {
+            startActivity(Intent(this, CartActivity::class.java))
+        }
 
         binding.btnLogout.setOnClickListener {
             preferences.edit().clear().apply()
@@ -37,20 +43,4 @@ class ProfileActivity : AppCompatActivity() {
             finish()
         }
     }
-    override fun onResume() {
-        super.onResume()
-        showFavoriteBooks()
-    }
-
-    private fun showFavoriteBooks() {
-        val favoriteBooks = TestData.books.filter { it.isFavorite }
-
-        binding.tvFavoritesBooks.text =
-            if (favoriteBooks.isEmpty()) {
-                "Обраних книг поки немає"
-            } else {
-                favoriteBooks.joinToString("\n") { "• ${it.title}" }
-            }
-    }
-
 }
