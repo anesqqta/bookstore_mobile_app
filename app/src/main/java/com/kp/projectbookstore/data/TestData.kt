@@ -6,7 +6,7 @@ import com.kp.projectbookstore.models.User
 
 object TestData {
 
-    val books = listOf(
+    val books = mutableListOf(
         Book(
             id = 1,
             title = "Воно",
