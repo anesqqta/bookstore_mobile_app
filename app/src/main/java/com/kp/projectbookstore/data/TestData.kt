@@ -81,7 +81,7 @@ object TestData {
         )
     )
 
-    val currentUser = User(
+    val currentUser = User (
         id = 1,
         name = "Anastasiia",
         email = "anastasiia@email.com",

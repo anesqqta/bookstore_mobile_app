@@ -7,7 +7,7 @@ import com.kp.projectbookstore.databinding.ItemBookBinding
 import com.kp.projectbookstore.models.Book
 
 class BookAdapter(
-    private val books: List<Book>,
+    private var books: List<Book>,
     private val onBookClick: (Book) -> Unit
 ) : RecyclerView.Adapter<BookAdapter.BookViewHolder>() {
 
@@ -41,4 +41,9 @@ class BookAdapter(
     }
 
     override fun getItemCount(): Int = books.size
+
+    fun updateBooks(newBooks: List<Book>) {
+        books = newBooks
+        notifyDataSetChanged()
+    }
 }
