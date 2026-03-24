@@ -19,7 +19,15 @@ class BookAdapter(
             binding.tvBookTitle.text = book.title
             binding.tvBookAuthor.text = book.author
             binding.tvBookGenre.text = book.genre
+            binding.tvBookStatus.text = if (book.inStock) "В наявності" else "Немає в наявності"
             binding.tvBookPrice.text = "${book.price} грн"
+
+            binding.tvBookStatus.setTextColor(
+                if (book.inStock)
+                    binding.root.context.getColor(android.R.color.holo_green_dark)
+                else
+                    binding.root.context.getColor(android.R.color.holo_red_dark)
+            )
 
             binding.root.setOnClickListener {
                 onBookClick(book)
