@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.kp.projectbookstore.R
+import com.kp.projectbookstore.data.TestData
 import com.kp.projectbookstore.databinding.ActivityProfileBinding
 
 class ProfileActivity : AppCompatActivity() {
@@ -28,11 +29,28 @@ class ProfileActivity : AppCompatActivity() {
         binding.tvUserName.text = userName
         binding.tvUserEmail.text = userEmail
 
+        showFavoriteBooks()
+
         binding.btnLogout.setOnClickListener {
             preferences.edit().clear().apply()
             startActivity(Intent(this, LoginActivity::class.java))
             finish()
         }
+    }
+    override fun onResume() {
+        super.onResume()
+        showFavoriteBooks()
+    }
+
+    private fun showFavoriteBooks() {
+        val favoriteBooks = TestData.books.filter { it.isFavorite }
+
+        binding.tvFavoritesBooks.text =
+            if (favoriteBooks.isEmpty()) {
+                "Обраних книг поки немає"
+            } else {
+                favoriteBooks.joinToString("\n") { "• ${it.title}" }
+            }
     }
 
 }
