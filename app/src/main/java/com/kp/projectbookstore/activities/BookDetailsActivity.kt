@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.kp.projectbookstore.R
+import com.kp.projectbookstore.data.TestData
 import com.kp.projectbookstore.databinding.ActivityBookDetailsBinding
 
 class BookDetailsActivity : AppCompatActivity() {
@@ -34,9 +35,27 @@ class BookDetailsActivity : AppCompatActivity() {
             binding.ivBookImage.setImageResource(imageResId)
         }
 
+        val selectedBook = TestData.books.find { it.title == title && it.author == author }
+
+        updateFavoriteButton(selectedBook?.isFavorite == true)
+
         binding.btnAddToFavorites.setOnClickListener {
-            Toast.makeText(this, "$title added to favorites", Toast.LENGTH_SHORT).show()
+            selectedBook?.let { book ->
+                book.isFavorite = !book.isFavorite
+                updateFavoriteButton(book.isFavorite)
+
+                val message = if (book.isFavorite) {
+                    "Книгу додано в обране"
+                } else {
+                    "Книгу видалено з обраного"
+                }
+
+                Toast.makeText(this, "$title added to favorites", Toast.LENGTH_SHORT).show()
+            }
         }
     }
-
+    private fun updateFavoriteButton(isFavorite: Boolean) {
+        binding.btnAddToFavorites.text =
+            if (isFavorite) "Видалити з обраного" else "Додати в обране"
+    }
 }
