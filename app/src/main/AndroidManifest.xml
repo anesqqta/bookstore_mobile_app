@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjectBookStore">
         <activity
+            android:name=".activities.FavoritesActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.LoginActivity"
             android:exported="true">
             <intent-filter>
@@ -33,6 +36,5 @@
             android:name=".MainActivity"
             android:exported="false" />
     </application>
-
 
 </manifest>
