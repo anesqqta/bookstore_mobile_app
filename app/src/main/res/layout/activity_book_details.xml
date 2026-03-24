@@ -82,6 +82,20 @@
             android:layout_marginTop="24dp"
             android:text="Додати до улюбленого" />
 
+        <Button
+            android:id="@+id/btnAddToCart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Додати в кошик" />
+
+        <Button
+            android:id="@+id/btnToggleStock"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Позначити як немає в наявності" />
+
     </LinearLayout>
 
 </ScrollView>

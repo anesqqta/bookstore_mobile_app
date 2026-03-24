@@ -38,6 +38,8 @@ class BookDetailsActivity : AppCompatActivity() {
         val selectedBook = TestData.books.find { it.title == title && it.author == author }
 
         updateFavoriteButton(selectedBook?.isFavorite == true)
+        updateCartButton(selectedBook?.isInCart == true)
+        updateStockButton(selectedBook?.inStock == true)
 
         binding.btnAddToFavorites.setOnClickListener {
             selectedBook?.let { book ->
@@ -53,9 +55,47 @@ class BookDetailsActivity : AppCompatActivity() {
                 Toast.makeText(this, "$title added to favorites", Toast.LENGTH_SHORT).show()
             }
         }
+        binding.btnAddToCart.setOnClickListener {
+            selectedBook?.let { book ->
+                book.isInCart = !book.isInCart
+                updateCartButton(book.isInCart)
+
+                val message = if (book.isInCart) {
+                    "Книгу додано в кошик"
+                } else {
+                    "Книгу видалено з кошика"
+                }
+
+                Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        binding.btnToggleStock.setOnClickListener {
+            selectedBook?.let { book ->
+                book.inStock = !book.inStock
+                updateStockButton(book.inStock)
+
+                val message = if (book.inStock) {
+                    "Книга позначена як в наявності"
+                } else {
+                    "Книга позначена як немає в наявності"
+                }
+
+                Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+            }
+        }
     }
     private fun updateFavoriteButton(isFavorite: Boolean) {
         binding.btnAddToFavorites.text =
             if (isFavorite) "Видалити з обраного" else "Додати в обране"
+    }
+    private fun updateCartButton(isInCart: Boolean) {
+        binding.btnAddToCart.text =
+            if (isInCart) "Видалити з кошика" else "Додати в кошик"
+    }
+
+    private fun updateStockButton(inStock: Boolean) {
+        binding.btnToggleStock.text =
+            if (inStock) "Позначити як немає в наявності" else "Позначити як в наявності"
     }
 }
