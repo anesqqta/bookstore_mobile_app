@@ -11,6 +11,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.kp.projectbookstore.activities.BookDetailsActivity
+import com.kp.projectbookstore.activities.FavoritesActivity
 import com.kp.projectbookstore.activities.ProfileActivity
 import com.kp.projectbookstore.activities.SearchActivity
 import com.kp.projectbookstore.adapters.BookAdapter
@@ -84,8 +85,8 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNavigation.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.nav_home -> true
-                R.id.nav_search -> {
-                    startActivity(Intent(this, SearchActivity::class.java))
+                R.id.nav_favorites -> {
+                    startActivity(Intent(this, FavoritesActivity::class.java))
                     true
                 }
                 R.id.nav_profile -> {
