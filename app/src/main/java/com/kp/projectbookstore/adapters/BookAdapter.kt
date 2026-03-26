@@ -28,7 +28,6 @@ class BookAdapter(
                 else
                     binding.root.context.getColor(android.R.color.holo_red_dark)
             )
-
             binding.root.setOnClickListener {
                 onBookClick(book)
             }
@@ -55,4 +54,3 @@ class BookAdapter(
         notifyDataSetChanged()
     }
 }
-

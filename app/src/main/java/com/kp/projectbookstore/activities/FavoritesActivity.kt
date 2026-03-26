@@ -37,11 +37,9 @@ class FavoritesActivity : AppCompatActivity() {
         binding.rvFavorites.layoutManager = LinearLayoutManager(this)
         binding.rvFavorites.adapter = adapter
     }
-
     override fun onResume() {
         super.onResume()
         val favoriteBooks = TestData.books.filter { it.isFavorite }
         adapter.updateBooks(favoriteBooks)
     }
-
 }

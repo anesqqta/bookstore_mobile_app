@@ -50,12 +50,10 @@ class CartActivity : AppCompatActivity() {
             }
         }
     }
-
     override fun onResume() {
         super.onResume()
         showCartBooks()
     }
-
     private fun showCartBooks() {
         val cartBooks = TestData.books.filter { it.isInCart }
         adapter.updateBooks(cartBooks)

@@ -12,7 +12,6 @@ object BookPreferences {
         val userPrefs = context.getSharedPreferences(USER_PREF_NAME, Context.MODE_PRIVATE)
         return userPrefs.getInt("userId", 0)
     }
-
     fun saveBookStates(context: Context) {
         val preferences = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
         val editor = preferences.edit()
@@ -25,7 +24,6 @@ object BookPreferences {
         }
         editor.apply()
     }
-
     fun loadBookStates(context: Context) {
         val preferences = context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
         val userId = getCurrentUserId(context)

@@ -83,7 +83,6 @@ class BookDetailsActivity : AppCompatActivity() {
                 Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
             }
         }
-
         binding.btnToggleStock.setOnClickListener {
             selectedBook?.let { book ->
                 book.inStock = !book.inStock
@@ -108,7 +107,6 @@ class BookDetailsActivity : AppCompatActivity() {
         binding.btnAddToCart.text =
             if (isInCart) "Видалити з кошика" else "Додати в кошик"
     }
-
     private fun updateStockButton(inStock: Boolean) {
         binding.btnToggleStock.text =
             if (inStock) "Позначити як немає в наявності" else "Позначити як в наявності"

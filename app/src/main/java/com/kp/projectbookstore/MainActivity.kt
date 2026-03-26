@@ -56,7 +56,6 @@ class MainActivity : AppCompatActivity() {
         binding.rvBooks.layoutManager = LinearLayoutManager(this)
         binding.rvBooks.adapter = bookAdapter
     }
-
     private fun setupSearch() {
         binding.etSearch.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
@@ -68,7 +67,6 @@ class MainActivity : AppCompatActivity() {
             override fun afterTextChanged(s: Editable?) {}
         })
     }
-
     private fun filterBooks(query: String) {
         val filteredBooks = if (query.isBlank()) {
             allBooks
@@ -82,7 +80,6 @@ class MainActivity : AppCompatActivity() {
 
         bookAdapter.updateBooks(filteredBooks)
     }
-
     private fun setupBottomNavigation() {
         binding.bottomNavigation.setOnItemSelectedListener { item ->
             when (item.itemId) {
@@ -104,7 +101,4 @@ class MainActivity : AppCompatActivity() {
         super.onResume()
         bookAdapter.updateBooks(allBooks)
     }
-
 }
-
-

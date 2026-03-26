@@ -5,7 +5,6 @@ import com.kp.projectbookstore.models.Book
 import com.kp.projectbookstore.models.User
 
 object TestData {
-
     val books = mutableListOf(
         Book(
             id = 1,
@@ -128,7 +127,6 @@ object TestData {
             inStock = true
         )
     )
-
     val users = listOf (
         User (
             id = 1,

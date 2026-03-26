@@ -35,11 +35,9 @@ class ProfileActivity : AppCompatActivity() {
         binding.btnOpenFavorites.setOnClickListener {
             startActivity(Intent(this, FavoritesActivity::class.java))
         }
-
         binding.btnOpenCart.setOnClickListener {
             startActivity(Intent(this, CartActivity::class.java))
         }
-
         binding.btnLogout.setOnClickListener {
             preferences.edit().clear().apply()
             startActivity(Intent(this, LoginActivity::class.java))
