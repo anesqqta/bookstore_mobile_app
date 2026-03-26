@@ -48,6 +48,7 @@ class LoginActivity : AppCompatActivity() {
             if (user != null) {
                 preferences.edit()
                     .putBoolean("isLoggedIn", true)
+                    .putInt("userId", user.id)
                     .putString("userName", user.name)
                     .putString("userEmail", user.email)
                     .apply()
