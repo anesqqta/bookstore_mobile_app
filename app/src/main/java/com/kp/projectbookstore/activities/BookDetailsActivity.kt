@@ -61,6 +61,15 @@ class BookDetailsActivity : AppCompatActivity() {
         }
         binding.btnAddToCart.setOnClickListener {
             selectedBook?.let { book ->
+                if (!book.inStock) {
+                    Toast.makeText(
+                        this,
+                        "Книги немає в наявності, зачекайте поки з'явиться в наявності",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    return@let
+                }
+
                 book.isInCart = !book.isInCart
                 BookPreferences.saveBookStates(this)
                 updateCartButton(book.isInCart)
